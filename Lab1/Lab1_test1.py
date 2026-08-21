@@ -1,5 +1,4 @@
-from Lab1 import Vec
-
+from ALA_MSIS.Lab1.Lab1 import Vec
 
 
 print("--- Test Case 1 ---")

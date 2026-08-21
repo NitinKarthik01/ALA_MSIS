@@ -18,7 +18,7 @@ class Vec:
             if not isinstance(x,(int, float)):
                 raise TypeError(f"Scalar must be a number: {type(x)}")
         self.elements = list(src)
-        print(self.elements)
+        #print(self.elements). # commented this line bcoz, printing itself takes so much time while checking performance for large size of vectors
 
     def __add__(self,t: Self) -> Self :
         if not isinstance(t, Vec):
