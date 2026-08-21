@@ -105,6 +105,10 @@ class Vec:
         return sqrt(total)
 
 
+
+print(__name__)   # default python makes __name__ = main
+print("")
+    
 print("Iniailized vectors v1 and v2")
 v1 = Vec((3,4))     # you are initializing a vector so it calls __init__ method, and inside __init__ method there is print, so it prints
 v2 = Vec((9,10,11)) # same as above
@@ -206,3 +210,9 @@ v13 = Vec.uniform(5)   # calls the static method uniform() using the class name 
 
 print("\n")
 print("Calculated the norm of v3 : ",v13.norm())
+
+
+
+
+
+
