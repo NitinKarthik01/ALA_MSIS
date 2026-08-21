@@ -18,7 +18,7 @@ class Vec:
             if not isinstance(x,(int, float)):
                 raise TypeError(f"Scalar must be a number: {type(x)}")
         self.elements = list(src)
-        #print(self.elements). # commented this line bcoz, printing itself takes so much time while checking performance for large size of vectors
+        #print(self.elements) # commented this line bcoz, printing itself takes so much time while checking performance for large size of vectors
 
     def __add__(self,t: Self) -> Self :
         if not isinstance(t, Vec):
@@ -106,110 +106,109 @@ class Vec:
 
 
 
-print(__name__)   # default python makes __name__ = main
-print("")
+if __name__ == "__main__":
+
+    print(__name__)   # default python makes __name__ = main
+    print("")
     
-print("Iniailized vectors v1 and v2")
-v1 = Vec((3,4))     # you are initializing a vector so it calls __init__ method, and inside __init__ method there is print, so it prints
-v2 = Vec((9,10,11)) # same as above
-                    # if I initialize a vector with v1=Vec(("hello",5)) --> it raises a typeError  
-print("\n")
+    print("Iniailized vectors v1 and v2")
+    v1 = Vec((3,4))     # you are initializing a vector so it calls __init__ method, and inside __init__ method there is print, so it prints
+    v2 = Vec((9,10,11)) # same as above
+                        # if I initialize a vector with v1=Vec(("hello",5)) --> it raises a typeError  
+    print("\n")
 
 
 
-print("printed v1")
-print(v1) # this calls the method __repr__ directly when it see the print(), so this prints Vector v1
-          # it calls as v1.__repr__()
+    print("printed v1")
+    print(v1) # this calls the method __repr__ directly when it see the print(), so this prints Vector v1
+            # it calls as v1.__repr__()
 
 
 
-print("\n")
-print("printed length of v2")
-len(v1)   # this calls v1.__len__() and returns the length of the vector
-print(len(v2))
+    print("\n")
+    print("printed length of v2")
+    len(v1)   # this calls v1.__len__() and returns the length of the vector
+    print(len(v2))
+
+
+    print("\n")
+    # v3 = v1 + v2 gives a typrError (dimension error) bcoz both v1 and v2 are not of same dimesnions(lenghts)
+    print("Initialized vector v3")
+    v3 = Vec((19, 20, 21))
+
+
+    print("\n")
+    print("Added v3 and v2 and stored in v4")
+    v4 = v3+v2    # v3.__add__(v2)
+
+
+    print("\n")
+    print("Subtracted v3 and v2 and stored in v5")
+    v5 = v3-v2    # v3.__sub__(v2)
 
 
 
-
-print("\n")
-# v3 = v1 + v2 gives a typrError (dimension error) bcoz both v1 and v2 are not of same dimesnions(lenghts)
-print("Initialized vector v3")
-v3 = Vec((19, 20, 21))
-
-
-print("\n")
-
-print("Added v3 and v2 and stored in v4")
-v4 = v3+v2    # v3.__add__(v2)
-
-
-print("\n")
-print("Subtracted v3 and v2 and stored in v5")
-v5 = v3-v2    # v3.__sub__(v2)
+    print("\n")
+    print("Multiplied v1*2 and stored in v6")
+    v6 = v1*2    # v1.__mul__(2)
 
 
 
-print("\n")
-print("Multiplied v1*2 and stored in v6")
-v6 = v1*2    # v1.__mul__(2)
+    print("\n")
+    print("Multiplied 2*v2 and stored in v7")
+    v7 = 2.5*v2    # 2.__rmul__(v2)
+
+
+    print("\n")
+    print("Multiplied v7*=3 and stored in v7")
+    v7*=3     # when the interpretor sees *= it calls v7.__imul__(3)
+    print(v7)
+
+
+    print("\n")
+    print("Negated v1 and stored in v8")
+    v8 = -v1       # when the interpreter sees -v1, it calls v1.__neg__()
 
 
 
-print("\n")
-print("Multiplied 2*v2 and stored in v7")
-v7 = 2.5*v2    # 2.__rmul__(v2)
-
-
-print("\n")
-print("Multiplied v7*=3 and stored in v7")
-v7*=3     # when the interpretor sees *= it calls v7.__imul__(3)
-print(v7)
-
-
-print("\n")
-print("Negated v1 and stored in v8")
-v8 = -v1       # when the interpreter sees -v1, it calls v1.__neg__()
+    print("\n")
+    print("Added v1 and v3 and stored in v9")
+    v9 = v7 + v3   # when the interpreter sees v7+v3, it calls v1.__add__(v3)
 
 
 
-print("\n")
-print("Added v1 and v3 and stored in v9")
-v9 = v7 + v3   # when the interpreter sees v7+v3, it calls v1.__add__(v3)
+    print("\n")
+    print("Subtracted v2 from v3 and stored in v10")
+    v10 = v3 - v2  # when the interpreter sees v3-v2, it calls v3.__sub__(v2)
 
 
 
-print("\n")
-print("Subtracted v2 from v3 and stored in v10")
-v10 = v3 - v2  # when the interpreter sees v3-v2, it calls v3.__sub__(v2)
+    print("\n")
+    print("Added v1 and v3 using += and stored in v1")
+    v9 += v3       # when the interpreter sees +=, it calls v9.__iadd__(v3)
 
 
 
-print("\n")
-print("Added v1 and v3 using += and stored in v1")
-v9 += v3       # when the interpreter sees +=, it calls v9.__iadd__(v3)
+    print("\n")
+    print("Created a vector of zeroes")
+    v11 = Vec.zeros(5)     # zeros() is a static method, so we call it using the class name Vec
+    print(type(v11.elements))
+
+
+    print("\n")
+    print("Created a vector of ones")
+    v12 = Vec.ones(5)      # ones() is a static method, so we call it using the class name Vec
 
 
 
-print("\n")
-print("Created a vector of zeroes")
-v11 = Vec.zeros(5)     # zeros() is a static method, so we call it using the class name Vec
-print(type(v11.elements))
-
-
-print("\n")
-print("Created a vector of ones")
-v12 = Vec.ones(5)      # ones() is a static method, so we call it using the class name Vec
+    print("\n")
+    print("Created a vector of uniformly distributed random numbers")
+    v13 = Vec.uniform(5)   # calls the static method uniform() using the class name Vec and stored in v15
 
 
 
-print("\n")
-print("Created a vector of uniformly distributed random numbers")
-v13 = Vec.uniform(5)   # calls the static method uniform() using the class name Vec and stored in v15
-
-
-
-print("\n")
-print("Calculated the norm of v3 : ",v13.norm())
+    print("\n")
+    print("Calculated the norm of v3 : ",v13.norm())
 
 
 
