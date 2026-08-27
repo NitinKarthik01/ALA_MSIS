@@ -6,9 +6,9 @@ V2 = Vec(range(2,30002,2))
 print(" ")
 
 
-start1 = time.perf_counter()
+start1 = time.time()
 V3= V1 + V2
-end1 = time.perf_counter()
+end1 = time.time()
 print("Time for Addition of 15000 vector size : ", end1 - start1)
 print(" ")
 print("---------------------------------------------------------------")
