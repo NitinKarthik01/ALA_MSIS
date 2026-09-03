@@ -1,6 +1,3 @@
-from typing import Self
-import random
-from math import sqrt
 
 class Matrix :
     def __init__(self,rows):
@@ -12,7 +9,7 @@ class Matrix :
             for x in self.rows:
                 if len(x) != self.num_col:
                     raise ValueError("All rows must have the same number of columns") 
-        print(self.rows,self.num_rows,self.num_col)
+        # print(self.rows,self.num_rows,self.num_col)
 
 
     def __add__(self,other):
@@ -40,7 +37,7 @@ class Matrix :
                 row.append(self.rows[i][j] + other.rows[i][j])
             result.append(row)
 
-        return (result)
+        return Matrix(result)
 
 
     def __sub__(self,other):
@@ -74,11 +71,21 @@ class Matrix :
 
 
 matrix1 = Matrix([[1,2,3],[12,23,34]])
-matrix2 = Matrix([[1,2,5],[4,10,11]])
-matrix1+=matrix2
-matrix3 = Matrix([[1,3,5],[7,10,100],[1,7,0]])
+print(matrix1)
 
-#matrix1+matrix2
-#matrix1-matrix2
-#matrix1*matrix3
+
+matrix2 = Matrix([[1,2,5],[4,10,11]])
+print(matrix2)
+
+
+matrix1+=matrix2
+print(matrix1)
+
+
+matrix3 = Matrix([[1,3,5],[7,10,100],[1,7,0]])
+print(matrix3)
+
+matrix_add = matrix1+matrix2
+matrix_sub = matrix1-matrix2
+matrix1*=matrix3
 print(matrix1)
