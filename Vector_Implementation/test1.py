@@ -1,7 +1,6 @@
-from ALA_MSIS.Lab1.Lab1 import Vec
+from vector import Vec
 
-
-print("--- Test Case 1 ---")
+#Test Block 1
 print("\n")
 
 v1 = Vec((3, 4))
@@ -28,4 +27,36 @@ print("norm(v1) =", v1.norm())
 # so the elements are getting printed
 
 
+
+
+#Test Block 2
+print(" ")
+v1 = Vec((2, 4, 6))
+print(" ")
+
+print("In place multiplication")
+v1 *= 3
+print("After *= 3:", v1)
+print(" ")
+
+print("Negation")
+v2 = -v1
+print("Negated vector:", v2)
+print(" ")
+
+
+zeros_vec = Vec.zeros(4)
+ones_vec = Vec.ones(4)
+
+print("Zeros vector:", zeros_vec)
+print(" ")
+print("Ones vector :", ones_vec)
+
+
+
+#Test Block 3
+v1 = Vec((1, 2))
+v2 = Vec((1, 2, 3))
+
+print(v1 + v2) # it generates error bcoz they are not of same dimensions
 

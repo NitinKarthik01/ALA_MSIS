@@ -1,4 +1,4 @@
-from Lab1 import Vec
+from vector import Vec
 import time
 
 V1 = Vec(range(1,30000,2))
